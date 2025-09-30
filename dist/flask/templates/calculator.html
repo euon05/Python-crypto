@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}계산기 (서버){% endblock %} {% block
+content %}
+<h2>계산기 (서버 측 안전 계산)</h2>
+<form method="post">
+  <label
+    >수식:
+    <input
+      type="text"
+      name="equation"
+      value="{{ equation }}"
+      placeholder="예: 2+3*4"
+      required
+  /></label>
+  <button type="submit">계산</button>
+</form>
+
+{% if error %}
+<p class="error">{{ error }}</p>
+{% endif %} {% if result %}
+<p class="result">{{ result }}</p>
+{% endif %}
+
+<p>
+  <strong>주의:</strong> 원격으로 제공하는 서비스에는 `eval` 사용금지. 이 예제는
+  AST 기반 안전 평가기를 사용합니다.
+</p>
+{% endblock %}

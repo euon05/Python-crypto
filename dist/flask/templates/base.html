@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}Flask 예제{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <nav>
+      <a href="{{ url_for('index') }}">홈</a> |
+      <a href="{{ url_for('gugudan') }}">구구단</a> |
+      <a href="{{ url_for('calculator') }}">계산기 (서버)</a> |
+      <a href="{{ url_for('calculator_js') }}">계산기 (JS)</a>
+    </nav>
+    <main>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <ul class="flashes">
+        {% for msg in messages %}
+        <li>{{ msg }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %} {% endwith %} {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
