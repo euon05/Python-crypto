@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>웹 계산기 & 구구단</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background-color: #f0f0f0;
+      }
+      h1 {
+        color: #333;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      input[type='text'] {
+        width: 200px;
+        padding: 5px;
+        font-size: 16px;
+      }
+      input[type='submit'] {
+        padding: 5px 10px;
+        font-size: 16px;
+      }
+      .result {
+        font-size: 18px;
+        color: blue;
+        margin-top: 10px;
+        font-weight: bold;
+      }
+      pre {
+        background-color: #fff;
+        padding: 15px;
+        border: 1px solid #ccc;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>웹 계산기</h1>
+    <form method="post">
+      수식 입력: <input type="text" name="equation" placeholder="예: 10 + 5" />
+      <input type="submit" value="계산" />
+    </form>
+    {% if result %}
+    <div class="result">결과: {{ result }}</div>
+    {% endif %}
+
+    <h1>구구단</h1>
+    <pre>{{ multiplication_table }}</pre>
+  </body>
+</html>
